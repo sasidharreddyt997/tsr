@@ -1,0 +1,12 @@
+
+create table TsrShopDetails
+(
+    name varchar Not Null,age int,
+    email varchar Not Null,
+    city varchar,
+    state varchar,
+    dealer varchar,
+    vehicle varchar Not Null,
+    dealer_city varchar,
+    mobile_number bigint primary key
+);

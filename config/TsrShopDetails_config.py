@@ -42,24 +42,3 @@ Session = sessionmaker(bind=engine)
 
 # Create the session object -This is the object being used in the all data base transactions!
 session = Session()
-
-class TsrShopDetailsProject(Base):
-    __tablename__ = "tsrshopdetails"
-    Name = Column("name", String)
-    Email = Column("email", String)
-    City = Column("city", String)
-    State = Column("state", String)
-    Dealer = Column("dealer", String)
-    Vehicle = Column("vehicle", String)
-    Dealer_city = Column("dealer_city", String)
-    Mobile_number = Column("mobile_number", Integer, primary_key=True)
-
-# http://127.0.0.1:5000/TsrShopDetails/task1/getmethod
-@app.route('/TsrShopDetails/task1/getmethod', methods=['GET'])
-def tsr_shop_details():
-    results = session.query(TsrShopDetailsProject).all()
-    results_1 = [item.__dict__ for item in results]
-    for item in results_1:
-        del item['_sa_instance_state']
-    return json.dumps(results_1)
-app.run(debug=True)
